@@ -1,0 +1,29 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <h1>Add Vaccine</h1>
+                <hr>
+                <form #addVaccineForm="ngForm" (ngSubmit)="onSubmit(addVaccineForm)" [noValidate]="false">
+
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Vaccine Name</label>
+                                <input type="text" class="form-control" ngModel name="name" required
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Description</label>
+                                <input type="text" class="form-control" ngModel name="description" required
+                                    aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

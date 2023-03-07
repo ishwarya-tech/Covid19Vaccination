@@ -1,0 +1,56 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row">
+                <div class="col-6"><h1>Appointment List</h1></div>
+                <div class="col-6">
+                    <span class="offset-md-9">
+                        <button type="button" class="btn btn-primary" routerLink="/user/add-appointment">
+                            &#43; Add New
+                        </button>
+                    </span>
+                </div>
+            </div>
+                
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered ">
+                            <thead>
+                                <th>Date</th>
+                                <th>Time Slot</th>
+                                <th>Dose</th>
+                                <th>Dose Status</th>
+                                <th>Appointment Status</th>
+                                <th>Vaccine</th>
+                                <th>Vaccine Center</th>
+                                <th>City</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of appointmentList">
+                                    <td>{{item?.appointment.date | date:'dd-MM-yyyy'}}</td>
+                                    <td>{{item?.appointment.slot}}</td>
+                                    <td>{{item?.doseCount}}</td>
+                                    <td>{{item?.doseStatus}}</td>
+                                    <td>{{item?.appointment.bookingStatus}}</td>
+                                    <td>{{item?.vaccine.name}}</td>
+                                    <td>{{item?.center.centerName}}</td>
+                                    <td>{{item?.center.city}}</td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="onUpdate(item)" type="button" [disabled]="item?.doseStatus=='COMPLETED'">Update</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="onDelete(item?.doseId)" type="button" [disabled]="item?.doseStatus=='COMPLETED'">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
